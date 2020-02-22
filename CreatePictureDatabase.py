@@ -4,7 +4,7 @@ import pandas
 import io
 
 def getImageAnnotation(pics):
-    credential_path = "C:/Users/rebec/github/HackHERS2020/HackHERS2020-a2ece6616d68.json"
+    credential_path = "./HackHERS2020-a2ece6616d68.json"
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
 
     client = vision.ImageAnnotatorClient()
@@ -48,5 +48,5 @@ def getFilesInFolder(folder):
     print(pics)
     return pics
 
-pics = getFilesInFolder(".\\media")
+pics = getFilesInFolder("./media")
 getImageAnnotation(pics)
