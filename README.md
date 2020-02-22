@@ -6,8 +6,6 @@
 
 ## How We Built It!
 
-##
-
 ## Challenges we ran into
 
 ## Accomplishments That We're Proud Of!
