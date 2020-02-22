@@ -2,6 +2,7 @@ import os
 from google.cloud import vision
 import pandas
 import io
+import numpy as np
 
 def getImageAnnotation(pics):
     credential_path = "./HackHERS2020-a2ece6616d68.json"
@@ -25,6 +26,7 @@ def getImageAnnotation(pics):
         faces = response.face_annotations
 
         for face in faces:
+            pic = pic.replace("\\","/");
             img_loc.append(pic)
             anger.append(likelihood_name[face.anger_likelihood])
             joy.append(likelihood_name[face.joy_likelihood])
@@ -32,10 +34,15 @@ def getImageAnnotation(pics):
             sorrow.append(likelihood_name[face.sorrow_likelihood])
             vertices = []
             for vertex in face.bounding_poly.vertices:
-                vertices.append([vertex.x, vertex.y])
-            box.append(vertices)
-    df = pandas.DataFrame(data={"image_location": img_loc, "anger": anger, "joy": joy, "surprise": surprise, "sorrow": sorrow, "box": box})
+                vertices.append(vertex.x)
+                vertices.append(vertex.y)
+            ver = np.array(vertices)
+            ver = np.unique(ver)
+            ver = np.array2string(ver, separator=',')
+            box.append(ver)
+    df = pandas.DataFrame(data={"image_location": img_loc, "anger": anger, "joy": joy, "surprise": surprise, "sorrow": sorrow, "box": box}, index= img_loc)
     df.to_csv("./data.csv", sep=',',index=False)
+    print(df)
 def getFilesInFolder(folder):
     pics = []
     directory = os.fsencode(folder)
@@ -45,7 +52,6 @@ def getFilesInFolder(folder):
          if filename.endswith(".jpg"):
              path_str = os.path.join(directory.decode("utf-8"), filename)
              pics.append(path_str)
-    print(pics)
     return pics
 
 pics = getFilesInFolder("./media")
