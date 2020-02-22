@@ -26,6 +26,6 @@ while True:
             cv2.imshow('Smile',frame)
             cv2.waitKey(1000)
             ret, frame = Image.read()
-            cv2.imwrite('abs.jpg',frame)
+            cv2.imwrite('output.jpg',frame)
             break
 cv2.destroyAllWindows()
