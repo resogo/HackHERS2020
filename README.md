@@ -4,7 +4,7 @@
 This year's theme of superheroes is what inspired us, along with a winner from last year's hackathon, to create a fun and humorous superhero project. Our project is similar to the recent Instagram craze that has been going on, but we put our own fun spin on it!
 
 ## Short Describing
-Have you ever wondered what superhero you might look like? Well with this project that can come true. Our project analyzes facial structure and using cutting-edge facial recognition software, returns an emotion rating, a photo of that super hero and a photo of the user as that superhero.
+Have you ever wondered what superhero you might look like? Well with this project that can come true. Our project analyzes facial structure and uses cutting-edge facial recognition software to return an emotion rating, a photo of that superhero and a photo of the user as that superhero.
 
 ## How We Built It & Challenges We Ran Into - FIX
 Our first challenge was downloading the applications necessary to turn on the camera to take the photo. Next was finalizing our idea because there were many paths that we wanted to go down, but only few that could be accomplished within the given time. Other challenges were solved with basic debugging.
