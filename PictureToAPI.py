@@ -20,7 +20,13 @@ def getImageAnnotation(pics):
         faces = response.face_annotations
 
         for face in faces:
-            return [likelihood_name[face.anger_likelihood], likelihood_name[face.joy_likelihood], likelihood_name[face.surprise_likelihood], likelihood_name[face.sorrow_likelihood]]
+            vertex_pairs = face.bounding_poly.vertices
+            vertices = []
+            vertices.append(vertex_pairs[0].x)
+            vertices.append(vertex_pairs[0].y)
+            vertices.append(vertex_pairs[2].x)
+            vertices.append(vertex_pairs[2].y)
+            return [vertices,[likelihood_name[face.anger_likelihood], likelihood_name[face.joy_likelihood], likelihood_name[face.surprise_likelihood], likelihood_name[face.sorrow_likelihood]]]
 
 # pics = ["C:/Users/rebec/github/HackHERS2020/abs.jpg"]
 

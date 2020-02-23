@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFilter
 import pandas
 import numpy as np
 
-def swap(img1_file,img2_file):
+def swap(img1_file,img2_file, box_data):
     df = pandas.read_csv('./data.csv',encoding="utf-8-sig")
     img1 = Image.open(img1_file)
     img2 = Image.open(img2_file)
@@ -12,14 +12,14 @@ def swap(img1_file,img2_file):
     #box1 = i['box']
     #box2 = j['box']
     #print(df.at[img1_file,'box'])
-    index = df.index[df['image_location']==img1_file]
-    index = index[0]
-    box1 = df.at[index,'box']
-    box1 = box1.replace(" ","")
-    box1 = box1.strip('[]')
-    corners = np.fromstring(box1, dtype=int, sep=',')
-    print(corners)
-    imCrop = img1.crop((corners[0],corners[1],corners[2],corners[3]))
+    #index = df.index[df['image_location']==img1_file]
+    #index = index[0]
+    #box1 = df.at[index,'box']
+    #box1 = box1.replace(" ","")
+    #box1 = box1.strip('[]')
+    #corners = np.fromstring(box1, dtype=int, sep=',')
+    #print(corners)
+    imCrop = img1.crop((box_data[0],box_data[1],box_data[2],box_data[3]))
 
 
     # make a copy the image so that
