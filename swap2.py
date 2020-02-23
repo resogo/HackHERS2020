@@ -33,16 +33,12 @@ def swap(img1_file,img2_file, box_data):
     box2 = box2.strip('[]')
 
     corners2 = np.fromstring(box2, dtype=int, sep=',')
-
-    print(corners2)
     imCrop2 = img2.crop((corners2[0],corners2[1],corners2[2],corners2[3]))
-    img_size = ((corners[2]-corners[0]),corners[3]-corners[1])
+    #img_size = ((box_data[2]-box_data[0]),box_data[3]-box_data[1])
     img2_size = ((corners2[2]-corners2[0]),corners2[3]-corners2[1])
     imCrop = imCrop.resize(img2_size)
-    print(img_size)
-    print(img2_size)
     # paste image giving dimensions
     Image2copy.paste(imCrop, (corners2[0],corners2[1]))
     # save the image
-    # Image2copy.save('./media/swapped.jpg')
-    return Image2copy
+    Image2copy.save('./media/swapped.jpg')
+    return './media/swapped.jpg'
