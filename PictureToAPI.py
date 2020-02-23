@@ -20,14 +20,10 @@ def getImageAnnotation(pics):
         faces = response.face_annotations
 
         for face in faces:
-            print(face)
-            print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-            print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-            print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-            print('sorrow: {}'.format(likelihood_name[face.sorrow_likelihood]))
+            return [likelihood_name[face.anger_likelihood], likelihood_name[face.joy_likelihood], likelihood_name[face.surprise_likelihood], likelihood_name[face.sorrow_likelihood]]
 
 # pics = ["C:/Users/rebec/github/HackHERS2020/abs.jpg"]
 
-pics = ["C:/Users/rebec/github/HackHERS2020/stark.jpg", "C:/Users/rebec/github/HackHERS2020/media/angryHulk.jpg"]
+#pics = ["C:/Users/rebec/github/HackHERS2020/stark.jpg", "C:/Users/rebec/github/HackHERS2020/media/angryHulk.jpg"]
 
-getImageAnnotation(pics)
+#getImageAnnotation(pics)

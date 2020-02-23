@@ -45,6 +45,5 @@ def swap(img1_file,img2_file):
     imCrop.save('./media/surprisedThorcropped.jpg')
     # paste image giving dimensions
     Image2copy.paste(imCrop, (corners2[0],corners2[1]))
-
     # save the image
     Image2copy.save('./media/swapped.jpg')
