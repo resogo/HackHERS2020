@@ -17,12 +17,34 @@ def swap(img1_file,img2_file):
     box1 = df.at[index,'box']
     box1 = box1.replace(" ","")
     box1 = box1.strip('[]')
-    print(box1)
     corners = np.fromstring(box1, dtype=int, sep=',')
     print(corners)
-    print(type(corners))
     imCrop = img1.crop((corners[0],corners[1],corners[2],corners[3]))
+
+
+    # make a copy the image so that
+    # the original image does not get affected
+    Image2copy = img2.copy()
+    #find where to paste
+    index2 = df.index[df['image_location']==img2_file]
+    index2 = index2[0]
+    box2 = df.at[index2,'box']
+    box2 = box2.replace(" ","")
+    box2 = box2.strip('[]')
+
+    corners2 = np.fromstring(box2, dtype=int, sep=',')
+
+    print(corners2)
+    imCrop2 = img2.crop((corners2[0],corners2[1],corners2[2],corners2[3]))
+    imCrop2.save('./media/captainMarvCrop.jpg')
+    img_size = ((corners[2]-corners[0]),corners[3]-corners[1])
+    img2_size = ((corners2[2]-corners2[0]),corners2[3]-corners2[1])
+    imCrop = imCrop.resize(img2_size)
+    print(img_size)
+    print(img2_size)
     imCrop.save('./media/surprisedThorcropped.jpg')
-img1_file = './media/camp.jpg'
-img2_file = './media/captainMarvel.jpg'
-swap(img2_file,img2_file)
+    # paste image giving dimensions
+    Image2copy.paste(imCrop, (corners2[0],corners2[1]))
+
+    # save the image
+    Image2copy.save('./media/swapped.jpg')
