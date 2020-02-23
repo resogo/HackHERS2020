@@ -33,11 +33,16 @@ def getImageAnnotation(pics):
             surprise.append(likelihood_name[face.surprise_likelihood])
             sorrow.append(likelihood_name[face.sorrow_likelihood])
             vertices = []
-            for vertex in face.bounding_poly.vertices:
-                vertices.append(vertex.x)
-                vertices.append(vertex.y)
+            #for vertex in face.bounding_poly.vertices:
+            #    vertices.append(vertex.x)
+            #    vertices.append(vertex.y)
+            vertex_pairs = face.bounding_poly.vertices
+            #ver = np.array(vertex_pairs[0],vertex_pairs[2])
+            vertices.append(vertex_pairs[0].x)
+            vertices.append(vertex_pairs[0].y)
+            vertices.append(vertex_pairs[2].x)
+            vertices.append(vertex_pairs[2].y)
             ver = np.array(vertices)
-            ver = np.unique(ver)
             ver = np.array2string(ver, separator=',')
             box.append(ver)
     df = pandas.DataFrame(data={"image_location": img_loc, "anger": anger, "joy": joy, "surprise": surprise, "sorrow": sorrow, "box": box}, index= img_loc)
