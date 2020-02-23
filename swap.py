@@ -21,8 +21,8 @@ def swap(img1_file,img2_file):
     corners = np.fromstring(box1, dtype=int, sep=',')
     print(corners)
     print(type(corners))
-    imCrop = img1.crop((box1[0],box1[1],box1[2],box1[3]))
-    imCrop.save('.\\media\\surprisedThor\\cropped.jpg')
-img1_file = './media/surprisedThor.jpg'
+    imCrop = img1.crop((corners[0],corners[1],corners[2],corners[3]))
+    imCrop.save('./media/surprisedThorcropped.jpg')
+img1_file = './media/camp.jpg'
 img2_file = './media/captainMarvel.jpg'
-swap(img1_file,img2_file)
+swap(img2_file,img2_file)
