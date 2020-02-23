@@ -18,9 +18,8 @@ def getImageAnnotation(pics):
         image = vision.types.Image(content=content)
         response = client.face_detection(image=image)
         faces = response.face_annotations
-
         for face in faces:
-            vertex_pairs = face.bounding_poly.vertices
+            vertex_pairs = face.fd_bounding_poly.vertices
             vertices = []
             vertices.append(vertex_pairs[0].x)
             vertices.append(vertex_pairs[0].y)
