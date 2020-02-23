@@ -8,7 +8,8 @@ from Cap import captureImage
 from PictureToAPI import getImageAnnotation
 from swap import swap
 
-image_file = captureImage()
+#image_file = captureImage()
+image_file = "./output.jpg"
 #anger, joy, surprise, sorrow
 picture_data = getImageAnnotation(image_file)
 emotion_ratings = picture_data[1]

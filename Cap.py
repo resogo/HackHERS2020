@@ -27,4 +27,4 @@ def captureImage():
                 cv2.imwrite('output.jpg',frame)
                 break
     cv2.destroyAllWindows()
-    return 'output.jpg'
+    return './output.jpg'
