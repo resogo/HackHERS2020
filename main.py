@@ -6,10 +6,11 @@
 from PIL import Image
 from Cap import captureImage
 from PictureToAPI import getImageAnnotation
-from swap import swap
+from swap2 import swap
+from makeMatch import chooseMatch
 
 #image_file = captureImage()
-image_file = "./output.jpg"
+image_file = ["./media/stark.jpg"]
 #anger, joy, surprise, sorrow
 picture_data = getImageAnnotation(image_file)
 emotion_ratings = picture_data[1]

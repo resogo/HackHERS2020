@@ -30,6 +30,5 @@ def getImageAnnotation(pics):
 
 # pics = ["C:/Users/rebec/github/HackHERS2020/abs.jpg"]
 
-#pics = ["C:/Users/rebec/github/HackHERS2020/stark.jpg", "C:/Users/rebec/github/HackHERS2020/media/angryHulk.jpg"]
-
-#getImageAnnotation(pics)
+#pics = ["C:/Users/rebec/github/HackHERS2020/media/stark.jpg", "C:/Users/rebec/github/HackHERS2020/media/angryHulk.jpg"]
+#print(getImageAnnotation(pics))
