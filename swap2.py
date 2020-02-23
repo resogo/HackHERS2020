@@ -39,6 +39,7 @@ def swap(img1_file,img2_file, box_data):
     imCrop = imCrop.resize(img2_size)
     # paste image giving dimensions
     Image2copy.paste(imCrop, (corners2[0],corners2[1]))
+    Image2copy = Image2copy.resize((1556,881))
     # save the image
     Image2copy.save('./media/swapped.jpg')
     return './media/swapped.jpg'
